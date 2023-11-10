@@ -24,12 +24,9 @@ public class MainActivity extends AppCompatActivity {
         editTextWeight = findViewById(R.id.weightID);
         editTextHeight = findViewById(R.id.heightID);
         textViewResult = findViewById(R.id.resultID);
-
-        buttonCalculate = findViewById(R.id.calcButtonID);
     }
 
     private Float calculateIMC(Float weight, Float height) {
-        
         return (weight / height) * 100;
     }
 
