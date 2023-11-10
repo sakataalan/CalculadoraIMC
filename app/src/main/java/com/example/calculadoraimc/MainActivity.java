@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonCalculate = findViewById(R.id.buttonCalculate);
         final textView textViewResult = findViewById(R.id.textViewResult);
 
-        buttonCalculate.setOnclickListener(new View.oinClickListener()
+        buttonCalculate.setOnclickListener(new View.oinClickListener() {
             @Override
             public void onClick(View v) {
                 String weightStr = editTextWeight.getText().toString();
