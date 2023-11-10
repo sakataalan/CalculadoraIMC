@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Float calculateIMC(Float weight, Float height) {
+        
         return (weight / height) * 100;
     }
 
