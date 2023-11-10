@@ -41,9 +41,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/calcButtonID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="calcButtonOnClick"
         android:text="@string/calc"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,7 +68,7 @@
         android:id="@+id/resultID"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="I.M.C"
@@ -78,8 +79,8 @@
     <EditText
         android:id="@+id/heightID"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="cm"
@@ -90,7 +91,7 @@
     <EditText
         android:id="@+id/weightID"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
