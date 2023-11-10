@@ -1,48 +1,41 @@
 package com.example.calculadoraimc;
 
-import androidx.appcompat.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
+    EditText editTextWeight;
+    EditText editTextHeight;
+    TextView textViewResult;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("LifeCicle", "onCreate");
 
-        final EditText editTextWeight = findViewById(R.id.editTextWeight);
-        final EditText editTextHeight = findViewById(R.id.editTextHeight);
-        Button buttonCalculate = findViewById(R.id.buttonCalculate);
-        final textView textViewResult = findViewById(R.id.textViewResult);
-
-        buttonCalculate.setOnclickListener(new View.oinClickListener() {
-            @Override
-            public void onClick(View v) {
-                String weightStr = editTextWeight.getText().toString();
-                String heightStr = editTextHeight.getText().toString();
-
-                if (!weightStr.isEmpty() && !heightStr.isEmpty()) {
-                    float weight = Float.parseFloat(weightStr);
-                    float height = Float.parseFloat(heightStr);
-
-                    float imc = calculateIMC(weight, height);
-
-                    textViewResult.setText(getString(R.string.result) + " " + imc);
-                } else {
-                    textViewResult.setText(getString(R.string.result) + " " + getString(R.string.calculation_error));
-                }
-            }
-        });
+        editTextWeight = findViewById(R.id.weightID);
+        editTextHeight = findViewById(R.id.heightID);
+        textViewResult = findViewById(R.id.resultID);
     }
 
-    private float calculateIMC(float weight, float height) {
-        return weight / (height * height);
+    private Float calculateIMC(Float weight, Float height) {
+        return (weight / (height * height)) * 10000;
+    }
+
+    public void calcButtonOnClick(View v) {
+        Float weight = Float.parseFloat(editTextWeight.getText().toString());
+        Float height = Float.parseFloat(editTextHeight.getText().toString());
+
+        Float result = calculateIMC(weight, height);
+
+        textViewResult.setText(String.format("%.2f", result));
     }
 
     @Override
