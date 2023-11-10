@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
 
     EditText editTextWeight;
     EditText editTextHeight;
-    Button buttonCalculate;
     TextView textViewResult;
 
     @Override
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Float calculateIMC(Float weight, Float height) {
-        return (weight / height) * 100;
+        return (weight / (height * height)) * 10000;
     }
 
     public void calcButtonOnClick(View v) {
