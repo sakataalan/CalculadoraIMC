@@ -1,30 +1,23 @@
-package com.example.calculadoraimc;
+package com.example.calculadoraimc.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.calculadoraimc.R;
+import com.example.calculadoraimc.model.DataModel;
 
-    EditText editTextWeight;
-    EditText editTextHeight;
-    TextView textViewResult;
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        editTextWeight = findViewById(R.id.weightID);
-        editTextHeight = findViewById(R.id.heightID);
-        textViewResult = findViewById(R.id.resultID);
     }
 
     private Float calculateIMC(Float weight, Float height) {
@@ -32,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calcButtonOnClick(View v) {
+        EditText editTextWeight = findViewById(R.id.weightID);
+        EditText editTextHeight = findViewById(R.id.heightID);
+        TextView textViewResult = findViewById(R.id.resultID);
+
         Float weight = Float.parseFloat(editTextWeight.getText().toString());
         Float height = Float.parseFloat(editTextHeight.getText().toString());
 
