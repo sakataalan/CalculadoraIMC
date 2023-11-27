@@ -4,4 +4,11 @@
     <string name="height">Altura</string>
     <string name="calc">Calcular</string>
     <string name="result">Resultado</string>
+    <string name="login">Login</string>
+    <string name="user">Usuário</string>
+    <string name="password">Senha</string>
+    <string name="cadastro">Cadastrar-se</string>
+    <string name="error">Error</string>
+    <string name="wrong_user">User not found</string>
+    <string name="error_signup">Signup failed, try again</string>
 </resources>
