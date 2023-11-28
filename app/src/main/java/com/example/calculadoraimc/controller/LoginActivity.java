@@ -10,7 +10,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.calculadoraimc.R;
-import com.example.calculadoraimc.model.DataModel;
 import com.example.calculadoraimc.model.UserDatabase;
 import com.example.calculadoraimc.model.UserDetails;
 
