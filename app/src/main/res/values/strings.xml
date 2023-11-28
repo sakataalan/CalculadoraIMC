@@ -11,4 +11,10 @@
     <string name="error">Error</string>
     <string name="wrong_user">User not found</string>
     <string name="error_signup">Signup failed, try again</string>
+    <string name="historic">Histórico</string>
+    <string name="calculator">Calculadora</string>
+    <string name="imc">IMC</string>
+    <string name="date">DATA</string>
+    <string name="addHistoricError">Erro ao adicionar ao historico</string>
+
 </resources>

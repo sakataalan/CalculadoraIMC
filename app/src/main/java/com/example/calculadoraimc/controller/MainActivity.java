@@ -1,7 +1,9 @@
 package com.example.calculadoraimc.controller;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,10 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.calculadoraimc.R;
-import com.example.calculadoraimc.model.DataModel;
+import com.example.calculadoraimc.model.UserDatabase;
+import com.example.calculadoraimc.model.UserDetails;
 
 public class MainActivity extends AppCompatActivity {
 
+    UserDatabase userDatabase = new UserDatabase(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,18 @@ public class MainActivity extends AppCompatActivity {
 
         Float resultIMC = calculateIMC(weight, height);
         String result = String.format("%.2f", resultIMC);
+
+        Boolean insertData = userDatabase.insertImc(result);
+
+        if (insertData) {
+            Toast.makeText(MainActivity.this, "Add to historic", Toast.LENGTH_SHORT).show();
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle(getString(R.string.error));
+            builder.setMessage(getString(R.string.addHistoricError));
+            builder.setPositiveButton(android.R.string.ok, null);
+            builder.create().show();
+        }
 
         textViewResult.setText(result);
         showToast(resultIMC);
@@ -59,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(this, "Obesidade Grau 3", Toast.LENGTH_LONG);
             toast.show();
         }
+    }
+
+    public void historicoButtonOnClick(View v) {
+        Intent intent = new Intent(MainActivity.this, HistoricActivity.class);
+        startActivity(intent);
     }
 
     @Override
